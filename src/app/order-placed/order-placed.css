@@ -1,0 +1,234 @@
+.order-placed-page {
+  position: relative;
+  min-height: 800px;
+  overflow: hidden;
+  padding: 135px 20px 90px;
+  color: #4b2b1b;
+  background: #f4e1ca;
+  isolation: isolate;
+}
+
+.order-placed-page-beans {
+  position: absolute;
+  z-index: -1;
+  width: 270px;
+  height: 370px;
+  opacity: 0.82;
+  pointer-events: none;
+}
+
+.order-placed-page-beans img {
+  object-fit: contain;
+}
+
+.order-placed-page-beans-left {
+  top: 80px;
+  left: -120px;
+}
+
+.order-placed-page-beans-right {
+  right: -120px;
+  bottom: -10px;
+  transform: scaleX(-1);
+}
+
+.order-placed-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.order-success-icon {
+  display: flex;
+  width: 76px;
+  height: 76px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  color: #fff7ec;
+  background: #75452b;
+  border: 10px solid #b59880;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(91, 45, 23, 0.2);
+}
+
+.order-success-icon svg {
+  font-size: 36px;
+}
+
+.order-success-label {
+  margin: 0 0 8px;
+  color: #8a5b3d;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.order-placed-shell h1 {
+  margin: 0 0 14px;
+  color: #3d2618;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: clamp(29px, 4vw, 42px);
+  text-transform: uppercase;
+}
+
+.order-number {
+  display: block;
+  color: #70401f;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.04em;
+}
+
+.order-date {
+  margin: 4px 0 24px;
+  color: #654633;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 11px;
+}
+
+.order-meta {
+  display: grid;
+  gap: 14px;
+  max-width: 500px;
+  margin: 0 auto 27px;
+  text-align: left;
+}
+
+.order-meta > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  gap: 18px;
+  align-items: baseline;
+  color: #63371e;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 11px;
+}
+
+.order-meta span {
+  font-weight: 600;
+}
+
+.order-meta strong {
+  font-weight: 400;
+}
+
+.order-items-card {
+  max-width: 385px;
+  margin: 0 auto 30px;
+  padding: 13px 20px 19px;
+  color: #63371e;
+  background: rgba(248, 229, 205, 0.8);
+  border: 1px solid rgba(137, 91, 52, 0.35);
+  border-radius: 15px;
+  box-shadow: 0 10px 22px rgba(91, 45, 23, 0.1);
+  font-family: "Poppins", Arial, sans-serif;
+  text-align: left;
+}
+
+.order-items-card h2 {
+  margin: 0 0 17px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.order-item-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 4px 0;
+  font-size: 11px;
+}
+
+.order-item-row small {
+  color: #96745b;
+  font-size: 9px;
+}
+
+.order-item-row strong {
+  font-weight: 500;
+}
+
+.order-items-divider {
+  height: 1px;
+  margin: 9px 0 7px;
+  background: rgba(137, 91, 52, 0.4);
+}
+
+.order-item-row.order-grand-total {
+  padding-top: 8px;
+  font-size: 13px;
+}
+
+.order-placed-button {
+  margin: 0 auto;
+}
+
+.order-placed-empty {
+  display: grid;
+  min-height: 600px;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+
+.order-placed-empty h1 {
+  margin: 0 0 8px;
+  color: #3d2618;
+  font-family: "Poppins", Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.order-placed-empty p {
+  margin: 0 0 20px;
+  color: #654633;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .order-placed-page {
+    min-height: 0;
+    padding: 108px 15px 65px;
+  }
+
+  .order-placed-page-beans {
+    width: 150px;
+    height: 220px;
+  }
+
+  .order-placed-page-beans-left {
+    top: 70px;
+    left: -74px;
+  }
+
+  .order-placed-page-beans-right {
+    right: -70px;
+    bottom: 0;
+  }
+
+  .order-success-icon {
+    width: 62px;
+    height: 62px;
+    border-width: 8px;
+  }
+
+  .order-success-icon svg {
+    font-size: 28px;
+  }
+
+  .order-meta > div {
+    grid-template-columns: 1fr;
+    gap: 3px;
+  }
+
+  .order-items-card {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}

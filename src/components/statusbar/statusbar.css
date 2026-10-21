@@ -1,0 +1,165 @@
+.statusbar {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  margin-top: calc(-8.5vh - 45px);
+  padding: 14px 0 18px;
+  overflow: hidden;
+  color: #795634;
+  background: linear-gradient(
+    100deg,
+    #e8ceb1 0%,
+    #f4e1ca 50%,
+    #e6c7a7 100%
+  );
+  border-top: 1px solid rgba(121, 86, 52, 0.25);
+  border-bottom: 1px solid rgba(121, 86, 52, 0.25);
+
+  /* Page open animation */
+  animation: statusbar-intro 0.8s ease-out 0.1s both;
+}
+
+.statusbar-title {
+  margin: 0 0 18px;
+  color: #3d2618;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.statusbar-title span {
+  color: #9a6b3e;
+}
+
+.statusbar-slider {
+  width: 100%;
+  overflow: hidden;
+}
+
+.statusbar-track {
+  display: flex;
+  width: max-content;
+  animation: statusbar-move 26s linear infinite;
+}
+
+.statusbar-item {
+  display: flex;
+  flex: 0 0 210px;
+  min-height: 66px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px 18px;
+  color: #795634;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  border-right: 1px solid rgba(121, 86, 52, 0.4);
+}
+
+.statusbar-icon {
+  display: block;
+  flex-shrink: 0;
+  color: #8d6038;
+  font-size: 42px;
+  line-height: 1;
+  filter:
+    drop-shadow(0 2px 0 rgba(126, 79, 42, 0.35))
+    drop-shadow(0 5px 6px rgba(91, 45, 23, 0.18));
+}
+
+/* Statusbar auto movement */
+@keyframes statusbar-move {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Statusbar page-open animation */
+@keyframes statusbar-intro {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 850px) {
+  .statusbar {
+    width: calc(100% - 28px);
+    margin: -185px 14px 0;
+    padding: 13px 8px 12px;
+    background: linear-gradient(
+      135deg,
+      #fff4e4,
+      #f4dec4
+    );
+    border: 1px solid rgba(151, 105, 65, 0.16);
+    border-radius: 16px;
+    box-shadow:
+      0 5px 12px rgba(91, 45, 23, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .statusbar-title {
+    margin: 0 0 12px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .statusbar-track {
+    animation-duration: 26s;
+  }
+
+  .statusbar-item {
+    flex: 0 0 calc((100vw - 60px) / 6);
+    min-height: 54px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 4px 3px;
+    font-size: 7px;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  .statusbar-item:nth-child(6),
+  .statusbar-item:nth-child(12) {
+    border-right: none;
+  }
+
+  .statusbar-icon {
+    font-size: 22px;
+  }
+}
+.statusbar-scroll-content {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.statusbar-scroll-visible .statusbar-scroll-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile پر status bar پہلے سے visible رہے گا */
+@media (max-width: 850px) {
+  .statusbar-scroll-content {
+    opacity: 1;
+    transform: none;
+  }
+}

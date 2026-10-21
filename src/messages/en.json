@@ -1,0 +1,327 @@
+{
+  "language": {
+    "label": "Language",
+    "english": "English",
+    "arabic": "العربية"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "menu": "Menu",
+    "faqs": "Faqs",
+    "gallery": "Gallery",
+    "addToCart": "Add to Cart",
+    "signIn": "Sign In",
+    "account": "Account",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "openCart": "Open cart"
+  },
+  "footer": {
+    "description": "We are passionate about serving premium coffee made from carefully selected beans, crafted with care for every customer.",
+    "socialLinks": "Social links",
+    "quickLinks": "Quick Links",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "craftedRich": "Crafting Rich",
+    "cozyMoments": "Cozy Moments",
+    "richFlavors": "Rich Flavors",
+    "comfortPlace": "Comfort Place",
+    "designedBy": "Designed by Zaima Saleem",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions"
+  },
+  "about": {
+    "eyebrow": "About Us",
+    "titleFirst": "Crafting Coffee",
+    "titleSecond": "Since 2015",
+    "description": "At Brewista, coffee is more than just a drink—it is a daily ritual that brings people together. We carefully source premium coffee beans, roast them to perfection, and craft every beverage with passion and precision. Our mission is to deliver unforgettable coffee experiences in a warm and welcoming environment.",
+    "missionLabel": "Our mission and vision",
+    "missionTitle": "Our Mission",
+    "missionText": "To inspire every coffee lover with handcrafted beverages made from the finest ingredients while creating memorable moments through outstanding quality and genuine hospitality.",
+    "visionTitle": "Our Vision",
+    "visionText": "To become a trusted coffee destination where innovation, craftsmanship, and community come together to create extraordinary coffee experiences.",
+    "missionAlt": "Coffee beans with fresh green leaves",
+    "visionAlt": "A warm cup of coffee with roasted beans"
+  },
+  "faq": {
+    "eyebrow": "FAQs",
+    "titleFirst": "Frequently Asked",
+    "titleSecond": "Questions",
+    "description": "We are here to help! Find answers to the most common questions about our coffee, services, and more.",
+    "listTitle": "Everything You Need To Know",
+    "items": {
+      "one": {
+        "question": "What type of coffee beans do you use?",
+        "answer": "We use 100% premium Arabica beans, ethically sourced from the finest coffee-growing regions around the world to deliver rich aroma and exceptional flavor in every cup."
+      },
+      "two": {
+        "question": "Are your ingredients natural and safe?",
+        "answer": "Yes. We carefully select natural, high-quality ingredients and prepare every drink and treat in a clean, safe environment."
+      },
+      "three": {
+        "question": "Do you offer any dairy-free or vegan options?",
+        "answer": "Yes. We offer dairy-free milk alternatives and a selection of vegan-friendly drinks and treats. Please ask our team about today's options."
+      },
+      "four": {
+        "question": "How can I place an order?",
+        "answer": "You can place an order in-store or choose your favorite items from our menu and contact our team for assistance with your order."
+      },
+      "five": {
+        "question": "Do you deliver to my area?",
+        "answer": "We deliver to selected areas. Enter your location during checkout or contact us to confirm delivery availability."
+      },
+      "six": {
+        "question": "How long does delivery take?",
+        "answer": "Most deliveries arrive within 30 to 45 minutes, depending on your location, order size, and current café traffic."
+      },
+      "seven": {
+        "question": "What is your return or refund policy?",
+        "answer": "If there is a problem with your order, contact us as soon as possible so our team can review it and help with a suitable replacement or refund."
+      }
+    }
+  },
+  "gallery": {
+    "eyebrow": "Our Gallery",
+    "titleFirst": "Visual",
+    "titleSecond": "Journey",
+    "description": "Explore the beauty behind every cup through carefully captured moments of handcrafted coffee, freshly roasted beans, artisan desserts, and the warm atmosphere that defines our café.",
+    "gridTitle": "Moments Worth Savoring",
+    "alts": {
+      "one": "Coffee and croissant on a warm café table",
+      "two": "Fresh coffee beans being ground",
+      "three": "Latte being poured into a cup",
+      "four": "Fresh espresso being prepared",
+      "five": "Steaming cup of coffee",
+      "six": "Chocolate brownie with coffee",
+      "seven": "Coffee and a peaceful moment",
+      "eight": "The Brewista coffee shop",
+      "nine": "Refreshing iced coffee",
+      "ten": "Fresh coffee beans"
+    }
+  },
+  "menu": {
+    "eyebrow": "Our Menu",
+    "titleFirst": "The Brew",
+    "titleSecond": "Atelier",
+    "description": "A delightful selection of handcrafted beverages and freshly made treats, prepared with the finest ingredients.",
+    "explore": "Explore Menu",
+    "allItems": "All Items",
+    "categories": {
+      "coffee": "Coffee",
+      "coldDrinks": "Cold Drinks",
+      "hotDrinks": "Hot Drinks",
+      "sweetTreats": "Sweet Treats"
+    },
+    "items": {
+      "espresso": { "name": "Espresso", "description": "Rich and intense shot of coffee" },
+      "affogato": { "name": "Affogato", "description": "Espresso over vanilla" },
+      "cappuccino": { "name": "Cappuccino", "description": "Espresso topped with milk and foam" },
+      "americano": { "name": "Americano", "description": "Espresso with cold water for a smooth taste" },
+      "macchiato": { "name": "Macchiato", "description": "Espresso with a small amount of milk" },
+      "mocha": { "name": "Mocha", "description": "Espresso blended with chocolate and milk" },
+      "flatWhite": { "name": "Flat White", "description": "Velvety espresso with silky microfoam" },
+      "latte": { "name": "Latte", "description": "Creamy espresso with plenty of milk" },
+      "icedLatte": { "name": "Iced Latte", "description": "Smooth espresso blend with chilled milk" },
+      "coldBrew": { "name": "Cold Brew Coffee", "description": "Bold and refreshing" },
+      "icedMocha": { "name": "Iced Mocha", "description": "Rich chocolate flavor" },
+      "frappe": { "name": "Frappe", "description": "Creamy chocolate coffee" },
+      "hotChocolate": { "name": "Hot Chocolate", "description": "Rich and comforting" },
+      "blackTea": { "name": "Black Tea", "description": "Bold and aromatic" },
+      "chaiLatte": { "name": "Chai Latte", "description": "Warm and spiced" },
+      "matchaLatte": { "name": "Matcha Latte", "description": "Smooth and earthy" },
+      "croissant": { "name": "Croissant", "description": "Buttery and flaky" },
+      "chocolateMuffin": { "name": "Chocolate Muffin", "description": "Soft and chocolatey" },
+      "chocolateBrownie": { "name": "Chocolate Brownie", "description": "Rich and fudgy" },
+      "cheeseCake": { "name": "Cheese Cake", "description": "Smooth and creamy" },
+      "cocoaTiramisu": { "name": "Cocoa Tiramisu", "description": "Classic Italian dessert" },
+      "honeyWaffle": { "name": "Honey Waffle", "description": "Crisp and sweet" },
+      "chocoCookies": { "name": "Choco Cookies", "description": "Freshly baked delight" },
+      "donut": { "name": "Donut", "description": "Soft and sweet" }
+    }
+  },
+  "home": {
+  "hero": {
+    "badge": "Premium Quality",
+    "titleFirst": "Brew Happiness",
+    "titleSecond": "In",
+    "titleAccent": "Every Cup",
+    "description": "From handpicked beans to handcrafted drinks, we bring you the perfect coffee experience with love in every detail.",
+    "orderNow": "Order Now",
+    "exploreMenu": "Explore Menu",
+    "coffeeAlt": "Animated coffee set"
+  },
+
+  "aboutSection": {
+    "label": "About Us",
+    "titleFirst": "Crafting Coffee",
+    "titleSecond": "Since 2015",
+    "description": "We believe great coffee starts with great beans. Sourced from the finest farms and roasted to perfection, we bring you an unforgettable coffee experience.",
+    "coffeeAlt": "Coffee beans",
+    "features": {
+      "premiumBeans": "Premium Beans",
+      "organicCoffee": "Organic Coffee",
+      "freshlyRoasted": "Freshly Roasted",
+      "expertBaristas": "Expert Baristas"
+    }
+  },
+
+  "statusbar": {
+    "titleBefore": "Trusted by",
+    "count": "15,000+",
+    "titleAfter": "Coffee Lovers",
+    "items": {
+      "coffeeHouse": "Coffee House",
+      "urbanBrew": "Urban Brew",
+      "roastCo": "Roast & Co.",
+      "brownCup": "Brown Cup",
+      "dailyBrew": "Daily Brew",
+      "coffeeHub": "The Coffee Hub"
+    }
+  },
+
+  "featuredMenu": "Featured Menu",
+  "exploreMenu": "Explore Menu",
+  "whyChooseUs": "Why Choose Us",
+  "customerSay": "What Our Customers Say",
+  "rating": "5 out of 5 stars",
+
+  "items": {
+    "mochaFrappe": {
+      "name": "Mocha Frappe",
+      "description": "Creamy chocolate coffee"
+    },
+    "affogato": {
+      "name": "Affogato",
+      "description": "Espresso over vanilla"
+    },
+    "cappuccino": {
+      "name": "Cappuccino",
+      "description": "Smooth and frothy"
+    },
+    "cocoaTiramisu": {
+      "name": "Cocoa Tiramisu",
+      "description": "Classic Italian dessert"
+    },
+    "honeyWaffle": {
+      "name": "Honey Waffle",
+      "description": "Warm and honey"
+    },
+    "chocoCookies": {
+      "name": "Choco Cookies",
+      "description": "Freshly baked delight"
+    }
+  },
+
+  "why": {
+    "fresh": {
+      "title": "Fresh Roasted Daily",
+      "text": "Our beans are roasted daily to ensure maximum freshness and rich flavor."
+    },
+    "organic": {
+      "title": "Organic Ingredients",
+      "text": "We use 100% organic beans and natural ingredients for a healthier you."
+    },
+    "baristas": {
+      "title": "Skilled Baristas",
+      "text": "Our expert baristas craft every cup with passion and perfection."
+    },
+    "delivery": {
+      "title": "Fast Delivery",
+      "text": "Get your favorite coffee delivered hot and fresh right to your door."
+    }
+  },
+
+  "reviews": {
+    "text": "The best coffee I've ever had! Every cup is full of flavor and love. Highly recommended."
+  }
+},
+  "cart": {
+    "eyebrow": "Your order",
+    "title": "Shopping Cart",
+    "emptyTitle": "Your cart is empty",
+    "emptyText": "Choose your favorite coffee or treat from the menu.",
+    "goToMenu": "Go to Menu",
+    "ready": "Ready when you are",
+    "payment": "Payment",
+    "cash": "Cash on delivery",
+    "online": "Online payment",
+    "cardholder": "Cardholder Name",
+    "cardNumber": "Card Number",
+    "expiry": "Exp. Date",
+    "cvv": "CVV",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "exploreMenu": "Explore Menu",
+    "decrease": "Decrease {name} quantity",
+    "increase": "Increase {name} quantity",
+    "remove": "Remove {name}"
+  },
+  "checkout": {
+    "back": "Back to cart",
+    "title": "Checkout",
+    "empty": "Add an item to your cart before checkout.",
+    "customerDetails": "Customer Details",
+    "name": "Name",
+    "phone": "Phone Number",
+    "email": "Email",
+    "address": "Delivery Address",
+    "namePlaceholder": "Your name",
+    "phonePlaceholder": "00 000 00 000",
+    "emailPlaceholder": "you@example.com",
+    "addressPlaceholder": "Type your complete address",
+    "paymentMethod": "Payment Method",
+    "onlinePayment": "Online Payment",
+    "cashDelivery": "Cash on Delivery",
+    "estimatedTime": "Estimated Delivery Time",
+    "time": "ASAP ~ 30 min(s)",
+    "subtotal": "Subtotal",
+    "deliveryFee": "Delivery Fee",
+    "grandTotal": "Grand Total",
+    "tax": "(Incl. 16% Tax)",
+    "confirm": "Confirm Order",
+    "exploreMenu": "Explore Menu",
+    "signInRequired": "Please sign in before placing your order.",
+    "orderFailed": "We could not place your order. Please try again."
+  },
+  "order": {
+    "noOrder": "No recent order found",
+    "noOrderText": "Add an item from the menu and complete checkout.",
+    "goToMenu": "Go to Menu",
+    "thanks": "Thank you for choosing us",
+    "title": "Order Placed",
+    "deliveryAddress": "Delivery Address",
+    "paymentMethod": "Payment Method",
+    "itemList": "Item List",
+    "subtotal": "Subtotal",
+    "grandTotal": "Grand Total",
+    "continue": "Continue Shopping"
+  },
+  "auth": {
+    "backHome": "Back to Home",
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "languageSignIn": "Sign In",
+    "languageSignUp": "Sign Up",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "namePlaceholder": "Enter your full name",
+    "emailPlaceholder": "Enter your email address",
+    "passwordPlaceholder": "Enter your password",
+    "createPasswordPlaceholder": "Create a password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "forgotPassword": "Forgot Password?",
+    "createAccount": "Create Account",
+    "alreadyAccount": "Already have an account?",
+    "noAccount": "Don't have an account?",
+    "orContinue": "or continue with",
+    "passwordMismatch": "Passwords do not match.",
+    "accountCreated": "Account created successfully.",
+    "signedIn": "You are signed in successfully.",
+    "checkEmail": "Check your email to confirm your account before signing in.",
+    "authFailed": "Authentication failed. Please try again.",
+    "pleaseWait": "Please wait..."
+  }
+}
