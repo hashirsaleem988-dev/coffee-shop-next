@@ -1,7 +1,7 @@
 .menu-section {
   position: relative;
   min-height: 650px;
-  padding: 44px 8% 110px;
+  padding: 46px clamp(24px, 8vw, 110px) 90px;
   overflow: hidden;
   isolation: isolate;
   background: #f4e1ca;
@@ -17,54 +17,55 @@
   margin: 0;
   color: #3d2618;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 21px;
+  font-size: clamp(18px, 1.7vw, 24px);
   font-weight: 700;
+  line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
 }
 
 .menu-grid {
   display: grid;
-  grid-template-columns: repeat(3, 166px);
+  grid-template-columns: repeat(3, minmax(200px, 250px));
   justify-content: center;
-  gap: 40px 42px;
-  margin: 44px auto 52px;
+  gap: 24px 26px;
+  margin: 34px auto 42px;
 }
 
 .menu-card {
   overflow: hidden;
   background: #efd9bd;
   border: 1px solid rgba(137, 91, 52, 0.25);
-  border-radius: 7px;
+  border-radius: 9px;
   box-shadow: 0 8px 14px rgba(91, 45, 23, 0.12);
-  opacity: 0;
-  transform: translateY(80px);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
 .menu-card-image {
   position: relative;
   width: 100%;
-  height: 135px;
+  height: 160px;
   overflow: hidden;
   background: #d6a071;
-  border-radius: 7px 7px 0 0;
+  border-radius: 8px 8px 0 0;
 }
 
 .menu-card-image img {
-  object-fit: contain !important;
+  object-fit: cover !important;
   object-position: center;
-  padding: 0;
-  transform: scale(1.18);
+  transform: scale(1.02);
   transition: transform 0.3s ease;
 }
 
-.menu-card:hover .menu-card-image img {
-  transform: scale(1.28);
+.menu-card:hover .menu-card-image img,
+.menu-card:focus-within .menu-card-image img {
+  transform: scale(1.08);
 }
 
 .menu-card-content {
-  padding: 9px 14px 7px;
+  padding: 11px 13px 9px;
 }
 
 .menu-card h3 {
@@ -73,6 +74,7 @@
   font-family: "Poppins", Arial, sans-serif;
   font-size: 12px;
   font-weight: 600;
+  line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
 }
@@ -83,7 +85,7 @@
   color: #654633;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 10px;
-  line-height: 1.2;
+  line-height: 1.25;
   text-align: center;
 }
 
@@ -91,7 +93,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 8px;
+  margin-top: 9px;
   color: #5b321e;
   font-family: "Poppins", Arial, sans-serif;
   font-size: 12px;
@@ -113,14 +115,15 @@
     0 3px 0 #c4956b,
     0 5px 9px rgba(91, 45, 23, 0.16);
   cursor: pointer;
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .menu-add-button svg {
   font-size: 18px;
 }
 
-.menu-add-button:hover {
+.menu-add-button:hover,
+.menu-add-button:focus-visible {
   transform: translateY(-3px);
 }
 
@@ -133,7 +136,7 @@
   display: block;
   width: fit-content;
   margin: 0 auto;
-  padding: 12px 22px;
+  padding: 12px 24px;
   color: #ffffff;
   background: linear-gradient(145deg, #7b3d20, #4a2110);
   border-radius: 25px;
@@ -143,33 +146,39 @@
   font-family: "Poppins", Arial, sans-serif;
   font-size: 12px;
   text-decoration: none;
-  transition: 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.menu-explore-button:hover {
+.menu-explore-button:hover,
+.menu-explore-button:focus-visible {
   transform: translateY(-4px);
 }
 
-/* Featured Menu beans */
-.menu-beans {
+.menu-beans,
+.why-beans,
+.testimonial-beans {
   position: absolute;
+  pointer-events: none;
+  opacity: 0.9;
+  will-change: transform;
+}
+
+.menu-beans img,
+.why-beans img,
+.testimonial-beans img {
+  display: block;
+  object-fit: contain;
+}
+
+.menu-beans {
   z-index: 1;
   width: 350px;
   height: 420px;
-  pointer-events: none;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-.menu-beans img {
-  display: block;
-  object-fit: contain;
 }
 
 .menu-beans-left {
   top: 0;
   left: -70px;
-  transform: translateX(-150px);
 }
 
 .menu-beans-left-bottom {
@@ -178,16 +187,12 @@
 }
 
 .menu-section.menu-visible .menu-beans-left {
-  animation: beans-left-in 1.2s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    both;
+  animation: beans-left-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .menu-section.menu-visible .menu-card {
-  animation: menu-card-bottom-top 0.9s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--card-delay)
-    both;
+  animation: menu-card-bottom-top 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--card-delay) both;
 }
 
 @keyframes beans-left-in {
@@ -214,27 +219,17 @@
   }
 }
 
-/* Why Choose Us */
 .why-choose {
   position: relative;
   z-index: 2;
-  min-height: 520px;
-  margin-top: 105px;
+  min-height: 360px;
+  margin-top: 76px;
   overflow: visible;
   isolation: isolate;
 }
 
 .why-beans {
-  position: absolute;
   z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  will-change: transform, opacity;
-}
-
-.why-beans img {
-  display: block;
-  object-fit: contain;
 }
 
 .why-beans-right {
@@ -242,7 +237,7 @@
   right: -185px;
   width: 390px;
   height: 540px;
-  transform: translateX(150px) scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .why-choose-title,
@@ -255,41 +250,39 @@
   margin: 0;
   color: #3d2618;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 23px;
+  font-size: clamp(18px, 1.8vw, 24px);
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(60px);
 }
 
 .why-choose-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-  margin-top: 74px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
 .why-card {
-  min-height: 255px;
-  padding: 28px 20px;
+  min-height: 215px;
+  padding: 24px 18px;
   text-align: center;
   background: #efd9bd;
   border: 1px solid rgba(137, 91, 52, 0.28);
-  border-radius: 8px;
+  border-radius: 9px;
   box-shadow: 0 8px 16px rgba(91, 45, 23, 0.1);
-  opacity: 0;
-  transform: translateY(80px);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
 .why-card-icon {
   display: flex;
-  width: 70px;
-  height: 70px;
+  width: 64px;
+  height: 64px;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 25px;
+  margin: 0 auto 20px;
   color: #75451f;
   background: linear-gradient(145deg, #f4d7b2, #dfb888);
   border-radius: 50%;
@@ -299,14 +292,15 @@
 }
 
 .why-card-icon svg {
-  font-size: 34px;
+  font-size: 31px;
 }
 
 .why-card h3 {
-  margin: 0 0 14px;
+  margin: 0 0 10px;
   color: #5b321e;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.2;
   text-transform: uppercase;
 }
 
@@ -314,29 +308,21 @@
   margin: 0;
   color: #654633;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.35;
 }
 
 .why-visible .why-beans-right {
-  animation: why-beans-right-in 1.2s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    0.1s
-    both;
+  animation: why-beans-right-in 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
 }
 
 .why-visible .why-choose-title {
-  animation: why-title-up 1s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    0.2s
-    both;
+  animation: why-title-up 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
 }
 
 .why-visible .why-card {
-  animation: why-card-bottom-top 0.9s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--why-delay)
-    both;
+  animation: why-card-bottom-top 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--why-delay) both;
 }
 
 @keyframes why-beans-right-in {
@@ -347,7 +333,7 @@
 
   to {
     opacity: 0.9;
-    transform: translateX(0) scaleX(-1);
+    transform: scaleX(-1);
   }
 }
 
@@ -375,13 +361,12 @@
   }
 }
 
-/* Testimonials */
 .testimonials-area {
   position: relative;
   z-index: 2;
-  min-height: 740px;
-  margin-top: -100px;
-  margin-bottom: -179px;
+  min-height: 600px;
+  margin-top: 34px;
+  padding-bottom: 54px;
   overflow: visible;
   isolation: isolate;
 }
@@ -390,20 +375,17 @@
   position: relative;
   z-index: 3;
   margin: 0;
-  padding-top: 42px;
   color: #3d2618;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 20px;
+  font-size: clamp(18px, 1.7vw, 23px);
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(45px);
 }
 
 .testimonials-path {
   position: absolute;
-  top: 115px;
+  top: 78px;
   left: 5%;
   z-index: 1;
   width: 90%;
@@ -426,7 +408,8 @@
   stroke-width: 1;
 }
 
-.testimonials-path .testimonial-light {
+.testimonials-path .testimonial-light,
+.testimonials-path .testimonial-light-core {
   fill: #fff1bd;
   stroke: none;
   opacity: 0;
@@ -434,8 +417,6 @@
 
 .testimonials-path .testimonial-light-core {
   fill: #ffffff;
-  stroke: none;
-  opacity: 0;
 }
 
 .testimonials-visible .testimonial-light,
@@ -444,68 +425,56 @@
 }
 
 .testimonial-beans {
-  position: absolute;
   z-index: 0;
-  pointer-events: none;
-  opacity: 0;
-  will-change: transform, opacity;
 }
 
-.testimonial-beans img {
-  display: block;
-  object-fit: contain;
-}
-
-/* Left beans - accurate final position */
 .testimonial-beans-left {
   top: -80px;
   left: -190px;
   width: 350px;
   height: 470px;
-  transform: translateX(-150px);
 }
 
-/* Right beans */
 .testimonial-beans-right {
   top: -35px;
   right: -80px;
   width: 250px;
   height: 360px;
-  transform: translateX(150px) scaleX(-1);
+  transform: scaleX(-1);
 }
 
 .testimonial-card {
   position: absolute;
   z-index: 4;
-  width: 190px;
+  width: 220px;
   min-height: 116px;
   padding: 12px 14px;
   background: #efd9bd;
   border: 1px solid rgba(137, 91, 52, 0.35);
-  border-radius: 7px;
+  border-radius: 8px;
   box-shadow: 0 7px 14px rgba(91, 45, 23, 0.08);
-  opacity: 0;
-  transform: translateY(55px);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
 .testimonial-card-1 {
-  top: 66%;
+  top: 62%;
   left: 0;
 }
 
 .testimonial-card-2 {
-  top: 28%;
+  top: 26%;
   left: 34%;
 }
 
 .testimonial-card-3 {
-  top: 68%;
+  top: 64%;
   right: 15%;
 }
 
 .testimonial-card-4 {
-  top: 15%;
+  top: 13%;
   right: 0;
 }
 
@@ -547,30 +516,22 @@
 }
 
 .testimonials-visible .testimonials-title {
-  animation: testimonial-title-in 0.9s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    0.15s
-    both;
+  animation: testimonial-title-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 .testimonials-visible .testimonial-card {
-  animation: testimonial-card-in 0.9s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    var(--review-delay)
-    both;
+  animation: testimonial-card-in 0.9s cubic-bezier(0.22, 1, 0.36, 1)
+    var(--review-delay) both;
 }
 
 .testimonials-visible .testimonial-beans-left {
-  animation: testimonial-beans-left-in 1.2s
-    cubic-bezier(0.22, 1, 0.36, 1)
+  animation: testimonial-beans-left-in 1.2s cubic-bezier(0.22, 1, 0.36, 1)
     both;
 }
 
 .testimonials-visible .testimonial-beans-right {
-  animation: testimonial-beans-right-in 1.2s
-    cubic-bezier(0.22, 1, 0.36, 1)
-    0.15s
-    both;
+  animation: testimonial-beans-right-in 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+    0.15s both;
 }
 
 @keyframes testimonial-title-in {
@@ -617,204 +578,33 @@
 
   to {
     opacity: 0.9;
-    transform: translateX(0) scaleX(-1);
+    transform: scaleX(-1);
   }
 }
 
-/* Mobile */
-@media (max-width: 850px) {
-  .menu-section {
-    min-height: auto;
-    padding: 34px 16px 70px;
-  }
-
-  .menu-title {
-    font-size: 17px;
-  }
-
+@media (max-width: 1100px) and (min-width: 851px) {
   .menu-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 12px;
-    max-width: 390px;
-    margin: 30px auto 40px;
+    grid-template-columns: repeat(3, minmax(170px, 1fr));
   }
 
   .menu-card-image {
-    height: 150px;
-  }
-
-  .menu-card-image img {
-    padding: 0 !important;
-    transform: scale(1.24);
-  }
-
-  .menu-card:hover .menu-card-image img {
-    transform: scale(1.3);
-  }
-
-  .menu-card-content {
-    padding: 8px 9px 7px;
-  }
-
-  .menu-card h3 {
-    font-size: 10px;
-  }
-
-  .menu-card p {
-    font-size: 8px;
-  }
-
-  .menu-card-footer {
-    font-size: 10px;
-  }
-
-  .menu-add-button {
-    width: 27px;
-    height: 27px;
-  }
-
-  .menu-add-button svg {
-    font-size: 16px;
-  }
-
-  .menu-beans {
-    width: 205px;
-    height: 315px;
-  }
-
-  .menu-beans-left {
-    top: 90px;
-    left: -60px;
-  }
-
-  .menu-beans-left-bottom {
-    top: 65%;
-    left: -65px;
-  }
-
-  .why-choose {
-    min-height: 520px;
-    margin-top: 75px;
-  }
-
-  .why-beans-right {
-    top: -60px;
-    right: -90px;
-    width: 220px;
-    height: 330px;
-  }
-
-  .why-choose-title {
-    font-size: 17px;
+    height: 140px;
   }
 
   .why-choose-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px 12px;
-    margin-top: 38px;
+    gap: 14px;
   }
 
   .why-card {
-    min-height: 215px;
-    padding: 20px 10px;
-  }
-
-  .why-card-icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 16px;
-  }
-
-  .why-card-icon svg {
-    font-size: 25px;
-  }
-
-  .why-card h3 {
-    font-size: 10px;
-  }
-
-  .why-card p {
-    font-size: 9px;
-  }
-
-  .testimonials-area {
-    min-height: auto;
-    margin-top: 75px;
-    padding-bottom: 45px;
-  }
-
-  .testimonials-title {
-    padding-top: 0;
-    font-size: 17px;
-  }
-
-  .testimonials-path {
-    display: none;
-  }
-
-  .testimonial-beans-left {
-    top: -45px;
-    left: -105px;
-    width: 200px;
-    height: 300px;
-  }
-
-  .testimonial-beans-right {
-    top: -25px;
-    right: -55px;
-    width: 145px;
-    height: 220px;
-  }
-
-  .testimonial-card,
-  .testimonial-card-1,
-  .testimonial-card-2,
-  .testimonial-card-3,
-  .testimonial-card-4 {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-    width: min(100%, 310px);
-    margin: 26px auto 0;
+    padding-right: 12px;
+    padding-left: 12px;
   }
 }
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .menu-beans,
-  .menu-card,
-  .why-beans,
-  .why-card,
-  .why-choose-title,
-  .testimonial-beans,
-  .testimonial-card,
-  .testimonials-title {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
-
-  .why-beans-right,
-  .testimonial-beans-right {
-    transform: scaleX(-1);
-  }
-
-  .testimonial-light,
-  .testimonial-light-core {
-    display: none;
-  }
-}
-/*
-  Is block ko apne existing menu.css ke bilkul end mein paste karo.
-  Desktop ke existing rules ko touch nahi karta.
-*/
 
 @media (max-width: 850px) {
   .menu-section {
     min-height: auto;
-    padding: 34px 16px 30px;
+    padding: 31px 14px 52px;
   }
 
   .menu-title {
@@ -823,35 +613,41 @@
 
   .menu-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px 12px;
-    max-width: 390px;
-     margin: 50px auto 52px;
+    gap: 14px 10px;
+    width: min(100%, 420px);
+    margin: 24px auto 32px;
+  }
+
+  .menu-card {
+    border-radius: 8px;
   }
 
   .menu-card-image {
-    height: 136px;
+    height: clamp(94px, 25vw, 112px);
   }
 
   .menu-card-image img {
-    transform: scale(1.2);
+    transform: scale(1.02);
   }
 
-  .menu-card:hover .menu-card-image img {
-    transform: scale(1.25);
+  .menu-card:hover .menu-card-image img,
+  .menu-card:focus-within .menu-card-image img {
+    transform: scale(1.06);
   }
 
   .menu-card-content {
-    padding: 8px 9px 7px;
+    padding: 8px 8px 7px;
   }
 
   .menu-card h3 {
     margin-bottom: 5px;
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .menu-card p {
-    min-height: 29px;
-    font-size: 8px;
+    min-height: 27px;
+    font-size: 7.5px;
+    line-height: 1.2;
   }
 
   .menu-card-footer {
@@ -868,15 +664,14 @@
     font-size: 16px;
   }
 
-  /* Featured Menu: left side coffee beans */
   .menu-beans {
     width: 190px;
     height: 290px;
   }
 
   .menu-beans-left {
-    top: -50px;
-    left: -68px;
+    top: 64px;
+    left: -78px;
   }
 
   .menu-explore-button {
@@ -885,16 +680,15 @@
     font-size: 11px;
   }
 
-  /* Why Choose Us: right side coffee beans */
   .why-choose {
     min-height: 0;
-    margin-top: 72px;
-    padding-bottom: 12px;
+    margin-top: 52px;
+    padding-bottom: 10px;
   }
 
   .why-beans-right {
-    top: -180px;
-    right: -76px;
+    top: -165px;
+    right: -78px;
     width: 185px;
     height: 278px;
   }
@@ -905,45 +699,42 @@
 
   .why-choose-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px 10px;
-    margin-top: 34px;
+    gap: 12px 10px;
+    margin-top: 29px;
   }
 
   .why-card {
-    min-height: 205px;
-    padding: 18px 9px 16px;
+    min-height: 185px;
+    padding: 17px 8px 14px;
   }
 
   .why-card-icon {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 15px;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 14px;
   }
 
   .why-card-icon svg {
-    font-size: 25px;
+    font-size: 24px;
   }
 
   .why-card h3 {
-    margin-bottom: 8px;
-    font-size: 10px;
+    margin-bottom: 7px;
+    font-size: 9px;
   }
 
   .why-card p {
-    font-size: 8.5px;
+    font-size: 8px;
     line-height: 1.3;
   }
 
-
   .testimonials-area {
     min-height: auto;
-    margin-top: 50px;
-    margin-bottom: 0;
-    padding-bottom: 20px;
+    margin-top: 36px;
+    padding-bottom: 22px;
   }
 
   .testimonials-title {
-    padding-top: 0;
     font-size: 17px;
   }
 
@@ -952,10 +743,17 @@
   }
 
   .testimonial-beans-left {
-    top: -110px;
+    top: -80px;
     left: -82px;
     width: 175px;
     height: 265px;
+  }
+
+  .testimonial-beans-right {
+    top: -25px;
+    right: -55px;
+    width: 145px;
+    height: 220px;
   }
 
   .testimonial-card,
@@ -996,11 +794,11 @@
 
 @media (max-width: 420px) {
   .menu-grid {
-    gap: 16px 9px;
+    gap: 12px 8px;
   }
 
   .menu-card-image {
-    height: 126px;
+    height: 96px;
   }
 
   .menu-card-content {
@@ -1009,17 +807,17 @@
   }
 
   .menu-card h3 {
-    font-size: 9px;
+    font-size: 8.5px;
   }
 
   .why-card {
-    min-height: 198px;
+    min-height: 182px;
     padding-right: 7px;
     padding-left: 7px;
   }
 
   .why-card p {
-    font-size: 8px;
+    font-size: 7.8px;
   }
 
   .testimonial-card,
@@ -1030,15 +828,31 @@
     width: 100%;
   }
 }
-/* Customers section ke left coffee beans ko neeche move karo */
-@media (min-width: 851px) {
-  .testimonials-area .testimonial-beans-left {
-    top: 0px;
-  }
-}
 
-@media (max-width: 850px) {
-  .testimonials-area .testimonial-beans-left {
-    top: -80px;
+@media (prefers-reduced-motion: reduce) {
+  .menu-beans,
+  .menu-card,
+  .why-beans,
+  .why-card,
+  .why-choose-title,
+  .testimonial-beans,
+  .testimonial-card,
+  .testimonials-title,
+  .menu-add-button,
+  .menu-explore-button {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .why-beans-right,
+  .testimonial-beans-right {
+    transform: scaleX(-1);
+  }
+
+  .testimonial-light,
+  .testimonial-light-core {
+    display: none;
   }
 }

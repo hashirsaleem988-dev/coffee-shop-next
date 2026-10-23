@@ -21,8 +21,8 @@
   position: relative;
   min-height: 480px;
   overflow: hidden;
-  opacity: 0;
-  transform: translateX(-34px);
+  opacity: 1;
+  transform: none;
   will-change: opacity, transform;
 }
 
@@ -57,6 +57,8 @@
   z-index: 1;
   object-fit: contain;
   object-position: center;
+  transform: scale(1.18);
+  transform-origin: 38% center;
 }
 
 .about-hero-content {
@@ -68,8 +70,8 @@
 }
 
 .about-hero-content > * {
-  opacity: 0;
-  transform: translateY(28px);
+  opacity: 1;
+  transform: none;
   will-change: opacity, transform;
 }
 
@@ -200,8 +202,8 @@
   border: 1px solid rgba(137, 91, 52, 0.22);
   border-radius: 7px;
   box-shadow: 0 12px 24px rgba(91, 45, 23, 0.1);
-  opacity: 0;
-  transform: translateY(38px);
+  opacity: 1;
+  transform: none;
   will-change: opacity, transform;
 }
 
@@ -316,27 +318,49 @@
 
 @media (max-width: 850px) {
   .about-hero {
-    display: flex;
-    min-height: auto;
-    flex-direction: column;
+    position: relative;
+    display: block;
+    height: clamp(300px, 76vw, 340px);
+    min-height: 300px;
+    max-height: 340px;
   }
 
   .about-hero-media {
-    min-height: 285px;
+    position: absolute;
+    top: 0;
+    right: auto;
+    bottom: 0;
+    left: 0;
+    width: 48%;
+    min-height: 0;
   }
 
   .about-hero-media::after {
     background: linear-gradient(
-      to bottom,
-      rgba(244, 225, 202, 0) 55%,
-      rgba(244, 225, 202, 0.9) 91%,
-      #f4e1ca 100%
+      90deg,
+      rgba(244, 225, 202, 0) 0%,
+      rgba(244, 225, 202, 0.2) 65%,
+      rgba(244, 225, 202, 0.82) 100%
     );
   }
 
+  .about-hero-foreground {
+    object-position: left bottom;
+    transform: translateY(-50px) scale(1.28);
+    transform-origin: left bottom;
+  }
+
   .about-hero-content {
+    position: relative;
+    z-index: 2;
+    margin-left: auto;
+    width: 52%;
+    height: 100%;
+    min-height: 0;
     max-width: none;
-    padding: 12px 24px 48px;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 44px 14px 10px 0;
   }
 
   .about-eyebrow {
@@ -345,13 +369,14 @@
   }
 
   .about-hero h1 {
-    margin-bottom: 18px;
-    font-size: clamp(34px, 11vw, 48px);
+    margin-bottom: 14px;
+    font-size: clamp(27px, 8.4vw, 38px);
   }
 
   .about-hero-content p {
-    font-size: 11px;
-    line-height: 1.55;
+    max-width: 190px;
+    font-size: 9px;
+    line-height: 1.45;
   }
 
   .about-story {
@@ -410,13 +435,32 @@
 }
 
 @media (max-width: 420px) {
+  .about-hero {
+    height: clamp(290px, 78vw, 325px);
+    min-height: 290px;
+    max-height: 325px;
+  }
+
   .about-hero-media {
-    min-height: 250px;
+    width: 48%;
+    min-height: 0;
   }
 
   .about-hero-content {
-    padding-right: 18px;
-    padding-left: 18px;
+    width: 52%;
+    height: 100%;
+    min-height: 0;
+    padding-top: 40px;
+    padding-right: 10px;
+  }
+
+  .about-hero h1 {
+    font-size: 30px;
+  }
+
+  .about-hero-content p {
+    max-width: 170px;
+    font-size: 8.5px;
   }
 
   .about-info-card {
@@ -482,7 +526,7 @@ html[dir="rtl"] .about-hero-content p {
 
 @keyframes about-media-reveal-rtl {
   from {
-    opacity: 0;
+  opacity: 1;
     transform: translateX(34px);
   }
 

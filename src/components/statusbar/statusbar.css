@@ -1,30 +1,27 @@
 .statusbar {
   position: relative;
   z-index: 5;
-  width: 100%;
-  margin-top: calc(-8.5vh - 45px);
-  padding: 14px 0 18px;
+  width: min(1120px, calc(100% - 72px));
+  margin: -86px auto 28px;
+  padding: 18px 24px 20px;
   overflow: hidden;
   color: #795634;
-  background: linear-gradient(
-    100deg,
-    #e8ceb1 0%,
-    #f4e1ca 50%,
-    #e6c7a7 100%
-  );
-  border-top: 1px solid rgba(121, 86, 52, 0.25);
-  border-bottom: 1px solid rgba(121, 86, 52, 0.25);
-
-  /* Page open animation */
+  background: linear-gradient(110deg, #f8e7d1 0%, #fff3e3 50%, #f1d8bc 100%);
+  border: 1px solid rgba(151, 105, 65, 0.16);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 20px rgba(91, 45, 23, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.76);
   animation: statusbar-intro 0.8s ease-out 0.1s both;
 }
 
 .statusbar-title {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
   color: #3d2618;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 17px;
+  font-size: clamp(13px, 1.25vw, 17px);
   font-weight: 700;
+  line-height: 1.2;
   text-align: center;
 }
 
@@ -38,51 +35,49 @@
 }
 
 .statusbar-track {
-  display: flex;
-  width: max-content;
-  animation: statusbar-move 26s linear infinite;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  width: 100%;
+  animation: none;
 }
 
 .statusbar-item {
   display: flex;
-  flex: 0 0 210px;
-  min-height: 66px;
+  min-width: 0;
+  min-height: 64px;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 5px 18px;
+  padding: 4px 12px;
   color: #795634;
   font-family: "Poppins", Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
+  line-height: 1.2;
   text-align: center;
   text-transform: uppercase;
-  border-right: 1px solid rgba(121, 86, 52, 0.4);
+  border-right: 1px solid rgba(121, 86, 52, 0.28);
+}
+
+.statusbar-item:nth-child(n + 7) {
+  display: none;
+}
+
+.statusbar-item:nth-child(6) {
+  border-right: none;
 }
 
 .statusbar-icon {
   display: block;
-  flex-shrink: 0;
+  flex: 0 0 auto;
   color: #8d6038;
-  font-size: 42px;
+  font-size: 34px;
   line-height: 1;
   filter:
-    drop-shadow(0 2px 0 rgba(126, 79, 42, 0.35))
-    drop-shadow(0 5px 6px rgba(91, 45, 23, 0.18));
+    drop-shadow(0 2px 0 rgba(126, 79, 42, 0.22))
+    drop-shadow(0 4px 6px rgba(91, 45, 23, 0.12));
 }
 
-/* Statusbar auto movement */
-@keyframes statusbar-move {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-/* Statusbar page-open animation */
 @keyframes statusbar-intro {
   from {
     opacity: 0;
@@ -95,60 +90,60 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 850px) {
   .statusbar {
     width: calc(100% - 28px);
-    margin: -185px 14px 0;
+    margin: -22px 14px 12px;
     padding: 13px 8px 12px;
-    background: linear-gradient(
-      135deg,
-      #fff4e4,
-      #f4dec4
-    );
-    border: 1px solid rgba(151, 105, 65, 0.16);
     border-radius: 16px;
-    box-shadow:
-      0 5px 12px rgba(91, 45, 23, 0.1),
-      inset 0 1px 0 rgba(255, 255, 255, 0.7);
   }
 
   .statusbar-title {
-    margin: 0 0 12px;
+    margin-bottom: 11px;
     font-size: 11px;
     white-space: nowrap;
   }
 
   .statusbar-track {
-    animation-duration: 26s;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
   }
 
   .statusbar-item {
-    flex: 0 0 calc((100vw - 60px) / 6);
-    min-height: 54px;
+    min-height: 53px;
     flex-direction: column;
     gap: 4px;
-    padding: 4px 3px;
-    font-size: 7px;
+    padding: 3px 2px;
+    font-size: 6.5px;
     line-height: 1.1;
-    white-space: normal;
-  }
-
-  .statusbar-item:nth-child(6),
-  .statusbar-item:nth-child(12) {
-    border-right: none;
   }
 
   .statusbar-icon {
     font-size: 22px;
   }
 }
+
+@media (max-width: 380px) {
+  .statusbar {
+    width: calc(100% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .statusbar-title {
+    font-size: 10px;
+  }
+
+  .statusbar-item {
+    font-size: 5.8px;
+  }
+}
+
 .statusbar-scroll-content {
   opacity: 0;
   transform: translateY(18px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .statusbar-scroll-visible .statusbar-scroll-content {
@@ -156,10 +151,17 @@
   transform: translateY(0);
 }
 
-/* Mobile پر status bar پہلے سے visible رہے گا */
 @media (max-width: 850px) {
   .statusbar-scroll-content {
     opacity: 1;
     transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statusbar,
+  .statusbar-scroll-content {
+    animation: none;
+    transition: none;
   }
 }

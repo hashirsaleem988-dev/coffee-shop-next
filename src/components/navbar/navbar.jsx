@@ -18,6 +18,7 @@ function Navbar() {
   const [navbarVisible, setNavbarVisible] = useState(true);
   const [isSignedIn, setIsSignedIn] = useState(false);
   const menuOpenRef = useRef(false);
+  const previousScrollYRef = useRef(0);
   const t = useTranslations("nav");
 
   useEffect(() => {
@@ -40,40 +41,36 @@ function Navbar() {
   }, []);
 
   useEffect(() => {
-    let hideTimer;
+    const updateNavbarVisibility = () => {
+      const currentScrollY = window.scrollY;
+      const previousScrollY = previousScrollYRef.current;
+      const scrollDelta = currentScrollY - previousScrollY;
 
-    const showNavbarForActivity = () => {
-      setNavbarVisible(true);
-      window.clearTimeout(hideTimer);
+      if (menuOpenRef.current) {
+        setNavbarVisible(true);
+        previousScrollYRef.current = currentScrollY;
+        return;
+      }
 
-      hideTimer = window.setTimeout(() => {
-        if (!menuOpenRef.current) {
-          setNavbarVisible(false);
-        }
-      }, 1300);
+      if (currentScrollY <= 8) {
+        setNavbarVisible(true);
+      } else if (scrollDelta > 4) {
+        setNavbarVisible(false);
+      } else if (scrollDelta < -4) {
+        setNavbarVisible(true);
+      }
+
+      previousScrollYRef.current = currentScrollY;
     };
 
-    showNavbarForActivity();
-
-    window.addEventListener("scroll", showNavbarForActivity, {
-      passive: true,
-    });
-    window.addEventListener("wheel", showNavbarForActivity, {
-      passive: true,
-    });
-    window.addEventListener("touchstart", showNavbarForActivity, {
-      passive: true,
-    });
-    window.addEventListener("touchmove", showNavbarForActivity, {
+    previousScrollYRef.current = window.scrollY;
+    updateNavbarVisibility();
+    window.addEventListener("scroll", updateNavbarVisibility, {
       passive: true,
     });
 
     return () => {
-      window.clearTimeout(hideTimer);
-      window.removeEventListener("scroll", showNavbarForActivity);
-    window.removeEventListener("wheel", showNavbarForActivity);
-      window.removeEventListener("touchstart", showNavbarForActivity);
-    window.removeEventListener("touchmove", showNavbarForActivity);
+      window.removeEventListener("scroll", updateNavbarVisibility);
     };
   }, []);
 

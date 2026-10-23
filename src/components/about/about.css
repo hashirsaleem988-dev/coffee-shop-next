@@ -7,24 +7,21 @@
   color: #402518;
 }
 
-/* Cream overlay bottom-to-top reveal ke liye */
 .about-section::after {
-  content: "";
   position: absolute;
   inset: 0;
   z-index: 5;
   pointer-events: none;
+  content: "";
   background: #f8ead7;
   clip-path: inset(0 0 0 0);
   will-change: clip-path;
 }
 
 .about-section.about-visible::after {
-  animation: about-banner-reveal 1.6s
-    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation: about-banner-reveal 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* Background */
 .about-background {
   position: absolute;
   inset: 0;
@@ -36,11 +33,10 @@
   object-position: center;
 }
 
-/* Left foreground SVG */
 .about-foreground {
   position: absolute;
-  left: 0;
   bottom: -3%;
+  left: 0;
   z-index: 1;
   display: block;
   width: 82%;
@@ -52,10 +48,9 @@
   transform: translateX(-100px);
 }
 
-/* Right side text */
 .about-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: 52%;
   margin-left: 48%;
   padding: 80px 7% 70px 3%;
@@ -63,15 +58,12 @@
   transform: translateX(100px);
 }
 
-/* Scroll animations */
 .about-section.about-visible .about-foreground {
-  animation: about-foreground-in 1.3s
-    cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+  animation: about-foreground-in 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
 }
 
 .about-section.about-visible .about-content {
-  animation: about-content-in 1.3s
-    cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+  animation: about-content-in 1.3s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
 }
 
 .about-label {
@@ -111,7 +103,7 @@
 
 .about-features {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
   max-width: 620px;
 }
@@ -125,6 +117,7 @@
   font-family: "Poppins", Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
+  line-height: 1.2;
   text-align: center;
 }
 
@@ -153,7 +146,6 @@
     drop-shadow(0 4px 4px rgba(91, 45, 23, 0.25));
 }
 
-/* Banner bottom se top reveal */
 @keyframes about-banner-reveal {
   from {
     clip-path: inset(0 0 0 0);
@@ -164,7 +156,6 @@
   }
 }
 
-/* Foreground left se */
 @keyframes about-foreground-in {
   from {
     opacity: 0;
@@ -177,7 +168,6 @@
   }
 }
 
-/* Text right se */
 @keyframes about-content-in {
   from {
     opacity: 0;
@@ -192,21 +182,21 @@
 
 @media (max-width: 850px) {
   .about-section {
-    min-height: 330px;
-      margin-top: 15px;
+    height: clamp(270px, 72vw, 330px);
+    min-height: 0;
+    margin-top: 0;
   }
 
   .about-background {
-    object-fit: cover;
     object-position: center;
   }
 
   .about-foreground {
-    top: 0;
-    left: -15;
-    bottom: auto;
-    width: 95%;
-    height: 90%;
+    top: auto;
+    bottom: -4%;
+    left: -22%;
+    width: 115%;
+    height: 165%;
     object-fit: contain;
     object-position: left bottom;
   }
@@ -214,7 +204,7 @@
   .about-content {
     width: 48%;
     margin-left: 52%;
-    padding: 32px 8px 20px 6px;
+    padding: 25px 12px 15px 7px;
   }
 
   .about-label {
@@ -237,7 +227,7 @@
   }
 
   .about-features {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 3px;
     width: 100%;
   }
@@ -263,11 +253,18 @@
 
 @media (max-width: 480px) {
   .about-section {
-    min-height: 300px;
+    height: clamp(270px, 72vw, 305px);
+  }
+
+  .about-foreground {
+    bottom: -5%;
+    left: -27%;
+    width: 122%;
+    height: 175%;
   }
 
   .about-content {
-    padding: 28px 6px 16px 5px;
+    padding: 23px 8px 14px 6px;
   }
 
   .about-label {
@@ -295,6 +292,7 @@
     font-size: 14px;
   }
 }
+
 html[dir="rtl"] .about-content {
   direction: rtl;
   text-align: right;
@@ -302,4 +300,18 @@ html[dir="rtl"] .about-content {
 
 html[dir="rtl"] .about-features {
   direction: rtl;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-section.about-visible .about-foreground,
+  .about-section.about-visible .about-content,
+  .about-section.about-visible::after {
+    animation: none;
+  }
+
+  .about-section.about-visible .about-foreground,
+  .about-section.about-visible .about-content {
+    opacity: 1;
+    transform: none;
+  }
 }

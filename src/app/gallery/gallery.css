@@ -54,9 +54,9 @@
 .gallery-page-banner-foreground {
   z-index: 1;
   left: auto;
-  width: min(66vw, 980px);
-  transform: translateX(130px);
-  opacity: 0;
+  width: min(74vw, 1080px);
+  transform: none;
+  opacity: 1;
   will-change: transform, opacity;
 }
 
@@ -78,8 +78,8 @@
 }
 
 .gallery-page-banner-copy > * {
-  opacity: 0;
-  transform: translateX(-85px);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
@@ -191,8 +191,8 @@
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
@@ -214,8 +214,8 @@
   background: #d6a071;
   border-radius: 13px;
   box-shadow: 0 8px 16px rgba(91, 45, 23, 0.14);
-  opacity: 0;
-  transform: translateY(48px) scale(0.97);
+  opacity: 1;
+  transform: none;
   will-change: transform, opacity;
 }
 
@@ -374,40 +374,46 @@
 
 @media (max-width: 850px) {
   .gallery-page-banner {
-    display: flex;
-    min-height: 620px;
-    flex-direction: column;
+    display: block;
+    height: clamp(300px, 76vw, 340px);
+    min-height: 300px;
+    max-height: 340px;
   }
 
   .gallery-page-banner::after {
     background: linear-gradient(
-      180deg,
-      rgba(244, 225, 202, 0.08) 0%,
-      rgba(244, 225, 202, 0.2) 42%,
-      rgba(244, 225, 202, 0.9) 78%,
-      #f4e1ca 100%
+      90deg,
+      rgba(244, 225, 202, 0.96) 0%,
+      rgba(244, 225, 202, 0.84) 42%,
+      rgba(244, 225, 202, 0.18) 78%,
+      rgba(244, 225, 202, 0) 100%
     );
   }
 
   .gallery-page-banner-foreground {
-    top: 68px;
-    right: 0;
-    width: 100%;
-    height: 53%;
+    top: -4px;
+    right: -4%;
+    width: 98%;
+    height: 100%;
   }
 
   .gallery-page-banner-foreground img {
-    object-position: 78% top;
+    object-position: right center;
   }
 
   .gallery-page-banner-copy {
+    position: absolute;
+    top: 70px;
+    left: 18px;
+    z-index: 2;
     width: 100%;
     box-sizing: border-box;
     align-self: flex-start;
-    justify-content: flex-end;
+    justify-content: flex-start;
+    align-items: flex-start;
     max-width: none;
-    margin-top: auto;
-    padding: 30px 24px 50px;
+    margin: 0;
+    padding: 0;
   }
 
   .gallery-page-eyebrow {
@@ -418,13 +424,13 @@
 
   .gallery-page-banner h1 {
     margin-bottom: 16px;
-    font-size: clamp(40px, 11vw, 55px);
+    font-size: clamp(31px, 8.8vw, 42px);
   }
 
   .gallery-page-banner-copy p {
-    max-width: 360px;
-    font-size: 11px;
-    line-height: 1.5;
+    max-width: 195px;
+    font-size: 9px;
+    line-height: 1.45;
   }
 
   .gallery-grid-section {
@@ -476,20 +482,25 @@
 
 @media (max-width: 420px) {
   .gallery-page-banner {
-    min-height: 570px;
+    height: clamp(290px, 78vw, 325px);
+    min-height: 290px;
+    max-height: 325px;
   }
 
   .gallery-page-banner-foreground {
-    top: 64px;
-    height: 50%;
+    top: -2px;
+    right: -8%;
+    width: 104%;
+    height: 100%;
   }
 
   .gallery-page-banner-copy {
-    padding: 26px 18px 42px;
+    top: 62px;
+    left: 16px;
   }
 
   .gallery-page-banner h1 {
-    font-size: 40px;
+    font-size: 34px;
   }
 
   .gallery-grid-section {
